@@ -1,0 +1,1 @@
+# Prediction-of-S-wave-Characterstics-from-P-Wave-Features-for-Earthquake-Early-Warning-Systems
