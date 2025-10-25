@@ -1,0 +1,16 @@
+{
+  "xgb": {
+    "n_estimators": 776,
+    "learning_rate": 0.010590433420511285,
+    "max_depth": 6,
+    "subsample": 0.666852461341688,
+    "colsample_bytree": 0.8724127328229327
+  },
+  "ann": {
+    "hidden_sizes": [428, 442, 220],
+    "dropout": 0.2835776221997114,
+    "epochs": 829,
+    "lr": 0.0011676487575205433,
+    "weight_decay": 6.370451204388144e-05
+  }
+}
