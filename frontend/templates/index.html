@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>EEW PGA Demo</title>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <style>
+    body { font-family: Arial, Helvetica, sans-serif; margin: 18px; }
+    .controls { margin-bottom: 12px; }
+    pre { background:#fafafa; border:1px solid #eee; padding:10px; }
+  </style>
+</head>
+<body>
+  <h2>EEW: P-wave → PGA prediction (demo)</h2>
+
+  <div class="controls">
+    <input id="file" type="file" accept=".mseed,.msd,.sac" />
+    <button onclick="upload()">Upload & Predict</button>
+    &nbsp;&nbsp;
+    <label>Station:</label>
+    <input id="net" value="IU" size="3" /> <input id="sta" value="ANMO" size="6" /> <input id="chan" value="BHZ" size="4" />
+    <button onclick="fetchStation()">Fetch Station</button>
+  </div>
+
+  <div id="plot" style="width:900px;height:260px;"></div>
+
+  <h3>Predictions</h3>
+  <pre id="pred">No predictions yet</pre>
+
+  <h3>Extracted features</h3>
+  <pre id="feat">No features yet</pre>
+
+<script>
+const API = 'http://localhost:8000';
+
+async function upload() {
+  const f = document.getElementById('file').files[0];
+  if (!f) { alert('Choose a file'); return; }
+  const fd = new FormData(); fd.append('file', f);
+  const r = await fetch(API + '/predict_upload', { method: 'POST', body: fd });
+  const data = await r.json();
+  if (!r.ok) { alert(JSON.stringify(data)); return; }
+  render(data);
+}
+
+async function fetchStation() {
+  const net = document.getElementById('net').value;
+  const sta = document.getElementById('sta').value;
+  const chan = document.getElementById('chan').value;
+  const r = await fetch(API + `/predict_station?network=${net}&station=${sta}&channel=${chan}`);
+  const data = await r.json();
+  if (!r.ok) { alert(JSON.stringify(data)); return; }
+  render(data);
+}
+
+function render(data) {
+  document.getElementById('pred').textContent = JSON.stringify(data.predictions, null, 2);
+  document.getElementById('feat').textContent = JSON.stringify(data.features, null, 2);
+  // plot p_window if present
+  const pwindow = data.p_window || [];
+  const sr = data.sampling_rate || 100;
+  const t = pwindow.map((_,i) => i / sr);
+  Plotly.newPlot('plot', [{
+    x: t, y: pwindow, mode: 'lines', name: 'P-window'
+  }], {margin:{t:20}, xaxis:{title:'Time (s)'}, yaxis:{title:'Amplitude'}});
+}
+</script>
+</body>
+</html>
