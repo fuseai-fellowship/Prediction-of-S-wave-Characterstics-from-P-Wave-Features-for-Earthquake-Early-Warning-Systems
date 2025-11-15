@@ -4,7 +4,7 @@
 
 Earthquake Early Warning (EEW) systems aim to detect the initial seismic P-waves, which travel faster but are less destructive, to provide advance notice before the arrival of more damaging S-waves and surface waves. Peak Ground Acceleration (PGA) is a key metric representing the maximum ground motion during an earthquake, directly related to potential structural damage. By extracting features from P-wave segments—such as amplitude, frequency content, and energy—machine learning models can rapidly estimate PGA, enabling timely alerts for critical infrastructure, transportation systems, and public safety interventions.
 
-## Overview 🔍
+## Abstract 🔍
 
 Pipeline to train an ML model that predicts Peak Ground Acceleration (PGA) from P‑wave features, fetch seismograms from IRIS, extract P‑wave features, and serve real‑time predictions via an interactive Streamlit dashboard.
 
@@ -35,7 +35,7 @@ Pipeline to train an ML model that predicts Peak Ground Acceleration (PGA) from 
 This project implements an Earthquake Early Warning (EEW) PGA predictor:
 
 - Preprocesses a labeled dataset of P‑wave‑derived features.
-- Trains an XGBoost regressor predicting PGA (training on log1p(PGA)).
+- Trains an XGBoost regressor predicting PGA.
 - Saves model + preprocessing artifacts for inference.
 - Fetches live waveforms from IRIS, detects P‑waves, extracts features, and predicts PGA in (near) real time.
 - Displays results in a Streamlit dashboard (waveform plots, P‑window zoom, predicted PGA, station map).
