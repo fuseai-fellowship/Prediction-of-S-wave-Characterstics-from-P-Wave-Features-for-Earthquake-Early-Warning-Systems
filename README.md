@@ -20,7 +20,6 @@ Pipeline to train an ML model that predicts Peak Ground Acceleration (PGA) from 
 - [Security & Secrets](#security--secrets)  
 - [Design Decisions & Notes](#design-decisions--notes)  
 - [Contributing](#contributing)  
-- [License](#license)
 
 ---
 
