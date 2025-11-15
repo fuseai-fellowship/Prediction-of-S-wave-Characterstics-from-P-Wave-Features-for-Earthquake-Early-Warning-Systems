@@ -34,23 +34,13 @@ This project implements an Earthquake Early Warning (EEW) PGA predictor:
 - Fetches live waveforms from IRIS, detects P‑waves, extracts features, and predicts PGA in (near) real time.
 - Displays results in a Streamlit dashboard (waveform plots, P‑window zoom, predicted PGA, station map).
 
-The code separates concerns: data IO, feature extraction, preprocessing, training, prediction, visualization, and UI.
-
 ---
-
-## ✨ Highlights
-
-- Reproducible training script and deterministic seed.
-- Same feature-extraction code used for training and inference.
-- Streamlit dashboard with waveform visualization and PGA gauge.
-- Dockerfile for containerized deployments.
-- Modular package layout under `src/` for easier maintenance and testing.
 
 ---
 
 ## 📁 Repository Structure
 
-Top-level (current repository):
+Top-level
 
 ```
 .
@@ -80,25 +70,6 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-Suggested runtime packages (from current repository):
-
-```text
-numpy>=1.23
-pandas>=1.5
-scikit-learn>=1.1
-xgboost>=1.6
-joblib>=1.1
-obspy>=1.2
-streamlit>=1.10
-matplotlib>=3.5
-seaborn>=0.11
-pydeck>=0.8
-tqdm>=4.60
-gdown>=4.6.0
-folium>=0.12
-pytest>=7.0
-```
-
 OS notes:
 - obspy and xgboost can require system packages (build tools, libxml2, etc.) or be installed more easily via conda/miniforge on some platforms. If you run into install errors, prefer a conda environment.
 
@@ -108,10 +79,8 @@ OS notes:
 
 ### Train the Model
 
-Place your CSV in `Data/` (or `data/`) and run your training script. Example:
-
 ```bash
-python scripts/run_train.py --data Data/EEW_features_YYYY-MM-DD.csv --out artifacts
+python scripts/run_train.py --data Data/EEW_features_2024-10-21.csv --out artifacts
 ```
 
 What this does:
@@ -223,12 +192,3 @@ Tip: If obspy or xgboost fail to install in the slim image, use a base image wit
 
 ---
 
-## 📜 License
-
-MIT License
-
----
-
-If you’d like, I can:
-- Commit this README.md into your repository (I can prepare the exact file contents to push), or
-- Produce a short CONTRIBUTING.md, CODE_OF_CONDUCT.md, or a Dockerfile tuned for obspy/xgboost installation.
