@@ -51,9 +51,10 @@ Top-level
 ```
 .
 ├── .gitignore
-├── Data/                 # dataset files (optional)
+├── artifacts/   
+├── data/                 # dataset files (optional)
 ├── Dockerfile
-├── Notebooks/            # analysis notebooks
+├── notebooks/            # analysis notebooks
 ├── app.py                # original top-level Streamlit app
 ├── app/                  # app package / assets
 ├── requirements.txt
