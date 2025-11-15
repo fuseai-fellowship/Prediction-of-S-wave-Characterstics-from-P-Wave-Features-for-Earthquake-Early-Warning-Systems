@@ -6,7 +6,7 @@ Earthquake Early Warning (EEW) systems aim to detect the initial seismic P-waves
 
 ## Abstract 🔍
 
-Pipeline to train an ML model that predicts Peak Ground Acceleration (PGA) from P‑wave features, fetch seismograms from IRIS, extract P‑wave features, and serve real‑time predictions via an interactive Streamlit dashboard.
+Pipeline to train an ML model that predicts Peak Ground Acceleration (PGA) from P‑wave features, fetch seismograms from IRIS, use STA/LT algorithm to detect P Wave onset, extract P‑wave features, and serve real‑time predictions via an interactive Streamlit dashboard.
 
 
 ---
