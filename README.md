@@ -82,24 +82,6 @@ OS notes:
 
 ---
 
-## ⚡ Quickstart
-
-### Train the Model
-
-```bash
-python scripts/run_train.py --data data/EEW_features_2024-10-21.csv --out artifacts
-```
-
-What this does:
-- Loads and cleans the dataset (coerces numeric columns, fills medians).
-- Selects the P-wave feature subset and applies log1p transforms.
-- Creates stratified train/val/test splits (using quantile bins on log target).
-- Fits preprocessing (RobustScaler, SimpleImputer, SelectKBest).
-- Trains final XGBoost regressor with provided best hyperparameters.
-- Saves artifacts to `artifacts/`:
-  - `xgb_eew_final.joblib`
-  - `preproc_objects.joblib`
-
 ### Run the Streamlit App
 
 Ensure artifacts exist (from training) then:
