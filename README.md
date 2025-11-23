@@ -87,7 +87,7 @@ OS notes:
 ### Train the Model
 
 ```bash
-python scripts/run_train.py --data Data/EEW_features_2024-10-21.csv --out artifacts
+python scripts/run_train.py --data data/EEW_features_2024-10-21.csv --out artifacts
 ```
 
 What this does:
