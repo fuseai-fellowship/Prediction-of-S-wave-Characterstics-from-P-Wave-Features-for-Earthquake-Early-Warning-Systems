@@ -40,6 +40,11 @@ This project implements an Earthquake Early Warning (EEW) PGA predictor:
 - Fetches live waveforms from IRIS, detects P‑waves, extracts features, and predicts PGA in (near) real time.
 - Displays results in a Streamlit dashboard (waveform plots, P‑window zoom, predicted PGA, station map).
 
+## Model Performance 🚀
+
+<img width="1157" height="378" alt="image" src="https://github.com/user-attachments/assets/d2fba919-9535-475e-96ea-893b3a34e08b" />
+
+
 ---
 
 ---
